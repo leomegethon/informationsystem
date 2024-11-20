@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>군사학 수강신청 도우미 - 남은 과목</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>남은 이수 과목</h1>
+    <div id="remainingCourses"></div>
+
+    <script>
+        // 데이터 로드
+        const grade = localStorage.getItem('grade');
+        const semester = localStorage.getItem('semester');
+        const major = localStorage.getItem('major');
+        const courses = localStorage.getItem('courses')?.split(',').map(course => course.trim()) || [];
+
+        const allCourses = {
+            basic: ["군사학 기초1", "군사학 기초2", "군사학 기초3"],
+            optional: {
+                "지휘관리": ["지휘관리 선택1", "지휘관리 선택2", "지휘관리 선택3", "지휘관리 선택4"],
+                "국방전략": ["국방전략 선택1", "국방전략 선택2", "국방전략 선택3", "국방전략 선택4"],
+                "군사공학": ["군사공학 선택1", "군사공학 선택2", "군사공학 선택3", "군사공학 선택4"],
+                "군사과학": ["군사과학 선택1", "군사과학 선택2", "군사과학 선택3", "군사과학 선택4"]
+            },
+            required: {
+                "지휘관리": ["지휘관리 필수1", "지휘관리 필수2", "지휘관리 필수3", "지휘관리 필수4", "지휘관리 필수5"],
+                "국방전략": ["국방전략 필수1", "국방전략 필수2", "국방전략 필수3", "국방전략 필수4", "국방전략 필수5"],
+                "군사공학": ["군사공학 필수1", "군사공학 필수2", "군사공학 필수3", "군사공학 필수4", "군사공학 필수5"],
+                "군사과학": ["군사과학 필수1", "군사과학 필수2", "군사과학 필수3", "군사과학 필수4", "군사과학 필수5"]
+            }
+        };
+
+        // 남은 과목 계산
+        const remainingBasic = allCourses.basic.filter(course => !courses.includes(course));
+        const remainingOptional = allCourses.optional[major].filter(course => !courses.includes(course));
+        const remainingRequired = allCourses.required[major].filter(course => !courses.includes(course));
+
+        const remainingCoursesDiv = document.getElementById("remainingCourses");
+        remainingCoursesDiv.innerHTML = `
+            <h2>기초 과목</h2>
+            <p>${remainingBasic.join(", ") || "모두 이수 완료"}</p>
+            <h2>선택 과목</h2>
+            <p>${remainingOptional.join(", ") || "모두 이수 완료"}</p>
+            <h2>필수 과목</h2>
+            <p>${remainingRequired.join(", ") || "모두 이수 완료"}</p>
+        `;
+    </script>
+</body>
+</html>

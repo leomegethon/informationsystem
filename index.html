@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>군사학 수강신청 도우미</title>
+</head>
+<body>
+    <h1>현재 학기 입력</h1>
+    <form id="currentSemesterForm">
+        <label>현재 학년: 
+            <select name="currentYear" id="currentYear">
+                <option value="">선택</option>
+                <option value="2">2학년</option>
+                <option value="3">3학년</option>
+                <option value="4">4학년</option>
+            </select>
+        </label>
+        <br>
+        <label>현재 학기: 
+            <select name="currentSemester" id="currentSemester">
+                <option value="">선택</option>
+                <option value="1">1학기</option>
+                <option value="2">2학기</option>
+            </select>
+        </label>
+        <br><br>
+        <button type="button" onclick="saveCurrentSemester()">다음</button>
+    </form>
+
+    <script>
+        function saveCurrentSemester() {
+            const currentYear = document.getElementById("currentYear").value;
+            const currentSemester = document.getElementById("currentSemester").value;
+
+            if (!currentYear || !currentSemester) {
+                alert("현재 학년과 학기를 선택하세요!");
+                return;
+            }
+
+            // 선택한 값을 로컬스토리지에 저장
+            localStorage.setItem("currentYear", currentYear);
+            localStorage.setItem("currentSemester", currentSemester);
+
+            // step2.html로 이동
+            window.location.href = "step2.html";
+        }
+    </script>
+</body>
+</html>

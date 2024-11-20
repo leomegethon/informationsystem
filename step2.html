@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>군사학 수강신청 도우미 - 학기별 과목 선택</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .semester {
+            margin-bottom: 10px;
+        }
+        select {
+            margin: 5px 0;
+        }
+        .submit-button {
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>학기별 수강 과목 입력</h1>
+    <p>학년과 학기별로 과목을 선택하세요.</p>
+
+    <form id="coursesForm">
+        <div id="semesterInputs">
+            <!-- 2학년 1학기 -->
+            <div class="semester" id="year2-sem1">
+                <h3>2학년 1학기</h3>
+                <label>군사학 기초1 : 
+                    <select name="year2-sem1-basic">
+                        <option value="">선택</option>
+                        <option value="군사학 기초1">군사학 기초1</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 선택: 
+                    <select name="year2-sem1-optional">
+                        <option value="">선택</option>
+                        <option value="군사학 선택1">군사학 선택1</option>
+                        <option value="군사학 선택2">군사학 선택2</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- 2학년 2학기 -->
+            <div class="semester" id="year2-sem2">
+                <h3>2학년 2학기</h3>
+                <label>군사학 기초1: 
+                    <select name="year2-sem2-basic">
+                        <option value="">선택</option>
+                        <option value="군사학 기초1">군사학 기초1</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 선택1 : 
+                    <select name="year2-sem2-optional">
+                        <option value="">선택</option>
+                        <option value="군사학 선택1">군사학 선택1</option>
+                        <option value="군사학 선택2">군사학 선택2</option>
+                    </select>
+                </label>
+                <label>군사학 필수: 
+                    <select name="year2-sem2-required">
+                        <option value="">선택</option>
+                        <option value="군사학 필수1">군사학 필수1</option>
+                        <option value="군사학 필수2">군사학 필수2</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- 3학년 1학기 -->
+            <div class="semester" id="year3-sem1">
+                <h3>3학년 1학기</h3>
+                <label>군사학 기초1 : 
+                    <select name="year3-sem1-basic1">
+                        <option value="">선택</option>
+                        <option value="군사학 기초1">군사학 기초1</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 기초2 : 
+                    <select name="year3-sem1-basic2">
+                        <option value="">선택</option>
+                        <option value="군사학 기초1">군사학 기초1</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 필수: 
+                    <select name="year3-sem1-required">
+                        <option value="">선택</option>
+                        <option value="군사학 필수1">군사학 필수1</option>
+                        <option value="군사학 필수2">군사학 필수2</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- 3학년 2학기 -->
+            <div class="semester" id="year3-sem2">
+                <h3>3학년 2학기</h3>
+                <label>군사학 기초1: 
+                    <select name="year3-sem2-basic1">
+                        <option value="">선택</option>
+                        <option value="군사학 기초1">군사학 기초1</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 기초2: 
+                    <select name="year3-sem2-basic2">
+                        <option value="">선택</option>
+                        <option value="군사학 기초1">군사학 기초1</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 필수: 
+                    <select name="year3-sem2-required">
+                        <option value="">선택</option>
+                        <option value="군사학 필수1">군사학 필수1</option>
+                        <option value="군사학 필수2">군사학 필수2</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- 4학년 1학기 -->
+            <div class="semester" id="year4-sem1">
+                <h3>4학년 1학기</h3>
+                <label>군사학 기초2: 
+                    <select name="year4-sem1-basic">
+                        <option value="">선택</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 선택: 
+                    <select name="year4-sem1-optional">
+                        <option value="">선택</option>
+                        <option value="군사학 선택1">군사학 선택1</option>
+                        <option value="군사학 선택2">군사학 선택2</option>
+                    </select>
+                </label>
+                <label>군사학 필수: 
+                    <select name="year4-sem1-required">
+                        <option value="">선택</option>
+                        <option value="군사학 필수1">군사학 필수1</option>
+                        <option value="군사학 필수2">군사학 필수2</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- 4학년 2학기 -->
+            <div class="semester" id="year4-sem2">
+                <h3>4학년 2학기</h3>
+                <label>군사학 기초2: 
+                    <select name="year4-sem2-basic">
+                        <option value="">선택</option>
+                        <option value="군사학 기초2">군사학 기초2</option>
+                    </select>
+                </label>
+                <label>군사학 선택: 
+                    <select name="year4-sem2-optional1">
+                        <option value="">선택</option>
+                        <option value="군사학 선택1">군사학 선택1</option>
+                        <option value="군사학 선택2">군사학 선택2</option>
+                        <option value="군사학 선택3">군사학 선택3</option>
+                    </select>
+                </label>
+                <label>군사학 선택: 
+                    <select name="year4-sem2-optional2">
+                        <option value="">선택</option>
+                        <option value="군사학 선택1">군사학 선택1</option>
+                        <option value="군사학 선택2">군사학 선택2</option>
+                        <option value="군사학 선택3">군사학 선택3</option>
+                    </select>
+                </label>
+                <label>군사학 필수: 
+                    <select name="year4-sem2-required">
+                        <option value="">선택</option>
+                        <option value="군사학 필수1">군사학 필수1</option>
+                        <option value="군사학 필수2">군사학 필수2</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <button type="button" class="submit-button" onclick="nextPage()">다음 페이지로</button>
+    </form>
+    <script>
+        // 현재 학기 로드
+        const currentYear = parseInt(localStorage.getItem("currentYear"), 10);
+        const currentSemester = parseInt(localStorage.getItem("currentSemester"), 10);
+
+        // 모든 학기 숨기기 로직
+        document.querySelectorAll(".semester").forEach(semester => {
+            const semesterId = semester.id; // 예: year2-sem1
+            const [year, sem] = semesterId.replace("year", "").split("-sem").map(Number);
+
+            // 현재 학기보다 이후 학기 숨김
+            if (year > currentYear || (year === currentYear && sem > currentSemester)) {
+                semester.classList.add("hidden");
+            }
+        });
+
+        // 다음 페이지로 이동
+        function nextPage() {
+            const formData = new FormData(document.getElementById("coursesForm"));
+            const courses = {};
+
+            formData.forEach((value, key) => {
+                if (value) {
+                    courses[key] = value;
+                }
+            });
+
+            localStorage.setItem("semesterCourses", JSON.stringify(courses));
+            window.location.href = "step3.html";
+        }
+    </script>
+</body>
+</html>
